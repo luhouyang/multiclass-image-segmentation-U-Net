@@ -46,7 +46,7 @@ def get_cityscape_data(
     return data_loader
 
 
-def save_as_images(tensor_pred, folder, image_name):
+def save_as_images(tensor_pred, folder, image_name, multiclass=True):
     tensor_pred = transforms.ToPILImage()(tensor_pred.byte())
     filename = f"{folder}/{image_name}.png"
     tensor_pred.save(filename)

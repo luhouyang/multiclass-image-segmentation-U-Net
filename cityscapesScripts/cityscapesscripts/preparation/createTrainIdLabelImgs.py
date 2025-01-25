@@ -23,12 +23,20 @@
 from __future__ import print_function, absolute_import, division
 import os, glob, sys
 
+import sys
+# caution: path[0] is reserved for script path (or '' in REPL)
+
+sys.path.insert(
+    1, 'C:/Users/User/Desktop/Python/deep_learning/multiclass-image-segmentation-U-Net/cityscapesScripts')
+
 # cityscapes imports
 from cityscapesscripts.helpers.csHelpers import printError
 from cityscapesscripts.preparation.json2labelImg import json2labelImg
 
 # The main method
 def main():
+    os.environ['CITYSCAPES_DATASET'] = 'D:/storage/gtFine_trainvaltest'
+
     # Where to look for Cityscapes
     if 'CITYSCAPES_DATASET' in os.environ:
         cityscapesPath = os.environ['CITYSCAPES_DATASET']

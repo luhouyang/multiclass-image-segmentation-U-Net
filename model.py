@@ -27,7 +27,7 @@ class UNET(nn.Module):
         """
         self.up_trans = nn.ModuleList([
             nn.ConvTranspose2d(layer, layer_n, kernel_size=2, stride=2)
-            for layer, layer_n in zip(self.layers[::-1][-2], self.layers[::-1]
+            for layer, layer_n in zip(self.layers[::-1][:-2], self.layers[::-1]
                                       [1:-1])
         ])
 

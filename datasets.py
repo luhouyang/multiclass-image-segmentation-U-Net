@@ -16,6 +16,7 @@ class CityscapesDataset(Dataset):
                  root_dir,
                  target_type='semantic',
                  mode='fine',
+                 relabelled=True,
                  transform=None,
                  eval=False):
         super().__init__()
@@ -38,7 +39,7 @@ class CityscapesDataset(Dataset):
         self.label_path = os.path.join(
             os.getcwd(), root_dir + '/' + self.mode + '/' + self.split)
         self.rgb_pth = os.path.join(os.getcwd(),
-                                    root_dir + '/leftImg8bit' + self.split)
+                                    root_dir + '/leftImg8bit/' + self.split)
 
         city_list = os.listdir(self.label_path)
         for city in city_list:

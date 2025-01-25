@@ -40,7 +40,7 @@ def get_cityscape_data(
         batch_size=batch_size,
         shuffle=shuffle,
         pin_memory=pin_memory,
-        num_workers='16',
+        num_workers=16,
     )
 
     return data_loader

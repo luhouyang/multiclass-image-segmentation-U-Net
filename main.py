@@ -9,21 +9,21 @@ from torchvision import transforms
 from utils import *
 from model import UNET
 
-if torch.cuda_is_available():
+if torch.cuda.is_available():
     DEVICE = 'cuda:0'
-    print('Running on GPU')
+    # print('Running on GPU')
 else:
     DEVICE = "cpu"
-    print('Running on CPU')
+    # print('Running on CPU')
 
-MODEL_PATH = ''
+MODEL_PATH = 'output/model.pth'
 LOAD_MODEL = False
-ROOT_DIR = ''
+ROOT_DIR = 'D:/storage/gtFine_trainvaltest'
 IMG_HEIGHT = 110
 IMG_WIDTH = 220
-BATCH_SIZE = 16
+BATCH_SIZE = 8
 LEARNING_RATE = 0.0005
-EPOCHS = 5
+EPOCHS = 10
 
 
 def train_function(data, model, optimizer, loss_fn, device):

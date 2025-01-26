@@ -12,7 +12,7 @@ Learning project
 
 From top to bottom : GROUND TRUTH | TRUE MASK | PREDICTION
 
-![Comparison](/Figure_1.png')
+![Comparison](/Figure_1.png)
 
 ## Tutorial
 

@@ -4,9 +4,10 @@ import torch
 from torchvision import transforms
 
 import matplotlib.pyplot as plt
+from PIL import Image
 
 from model import UNET
-from utils import *
+from utils import save_as_images, get_cityscape_data
 from cityscapesScripts.cityscapesscripts.helpers.labels import trainId2label as t2l
 
 if torch.cuda.is_available():
@@ -14,14 +15,15 @@ if torch.cuda.is_available():
 else:
     DEVICE = 'cpu'
 
-ROOT_DIR_CITYSCAPES = ''
-IMAGE_HEIGHT = 110
-IMAGE_WIDTH = 220
+ROOT_DIR_CITYSCAPES = 'D:/storage/gtFine_trainvaltest'
+IMAGE_HEIGHT = 512
+IMAGE_WIDTH = 1024
 
-MODEL_PATH = ''
+# MODEL_PATH = 'C:/Users/User/Desktop/Python/deep_learning/multiclass-image-segmentation-U-Net/output/model.pth'
+MODEL_PATH = 'C:/Users/User/Desktop/Python/deep_learning/multiclass-image-segmentation-U-Net/output/model_highres.pth'
 
 EVAL = True
-PLOT_LOSS = True
+PLOT_LOSS = False
 
 
 def save_predictions(data, model):
@@ -51,7 +53,7 @@ def save_predictions(data, model):
             global location
             location = 'saved_images/multiclass_1'
 
-            utils.save_image(pred_labels, location, name, multiclass=True)
+            save_as_images(pred_labels, location, name, multiclass=True)
 
 
 def evaluate(path):

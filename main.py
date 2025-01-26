@@ -16,14 +16,14 @@ else:
     DEVICE = "cpu"
     # print('Running on CPU')
 
-MODEL_PATH = 'output/model.pth'
+MODEL_PATH = 'output/model_highres.pth'
 LOAD_MODEL = False
 ROOT_DIR = 'D:/storage/gtFine_trainvaltest'
-IMG_HEIGHT = 110
-IMG_WIDTH = 220
-BATCH_SIZE = 8
-LEARNING_RATE = 0.0005
-EPOCHS = 10
+IMG_HEIGHT = 512
+IMG_WIDTH = 1024
+BATCH_SIZE = 4
+LEARNING_RATE = 0.0003
+EPOCHS = 20
 
 
 def train_function(data, model, optimizer, loss_fn, device):

@@ -29,6 +29,12 @@ import os, sys
 import platform
 import fnmatch
 
+# caution: path[0] is reserved for script path (or '' in REPL)
+
+sys.path.insert(
+    1, 'C:/Users/User/Desktop/Python/deep_learning/multiclass-image-segmentation-U-Net/cityscapesScripts')
+
+
 try:
     from itertools import izip
 except ImportError:
@@ -115,6 +121,9 @@ class CArgs(object):
     pass
 # And a global object of that class
 args = CArgs()
+
+os.environ['CITYSCAPES_RESULTS'] = 'C:/Users/User/Desktop/Python/deep_learning/multiclass-image-segmentation-U-Net/saved_images/multiclass_1'
+os.environ['CITYSCAPES_DATASET'] = 'D:/storage/gtFine_trainvaltest'
 
 # Where to look for Cityscapes
 if 'CITYSCAPES_DATASET' in os.environ:
